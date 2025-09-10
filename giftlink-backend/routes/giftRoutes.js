@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     } catch (e) {
         console.error('Error fetching gifts:', e);
         res.status(500).send('Error fetching gifts');
-    };
+    }
 });
 
 router.get('/:id', async (req, res) => {
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
         const db = await connectToDatabase();
 
         // Task 2: use the collection() method to retrieve the gift collection
-        const collection = db.collection("gifts")
+        const collection = db.collection("gifts");
 
         const id = req.params.id;
 
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 
         if (!gift) {
             return res.status(404).send('Gift not found');
-        };
+        }
 
         res.json(gift);
     } catch (e) {
@@ -58,7 +58,7 @@ router.post('/', async (req, res, next) => {
         res.status(201).json(gift.ops[0]);
     } catch (e) {
         next(e);
-    };
+    }
 });
 
 module.exports = router;
