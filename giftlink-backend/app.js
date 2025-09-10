@@ -23,10 +23,10 @@ app.use(express.json());
 
 // Route files
 // Gift API Task 1: import the giftRoutes and store in a constant called giftroutes
-const giftroutes = require('./routes/giftRoutes.js')
+const giftroutes = require('./routes/giftRoutes.js');
 
 // Search API Task 1: import the searchRoutes and store in a constant called searchRoutes
-const searchRoutes = require('./routes/searchRoutes.js')
+const searchRoutes = require('./routes/searchRoutes.js');
 
 
 const pinoHttp = require('pino-http');
@@ -50,8 +50,8 @@ app.use((err, req, res, next) => {
 });
 
 app.get("/",(req,res)=>{
-    res.send("Inside the server")
-})
+    res.send("Inside the server");
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
