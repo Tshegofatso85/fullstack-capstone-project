@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
         if (existingEmail) {
             logger.error('Email id already exists');
             return res.status(400).json({ error: 'Email id already exists' });
-        };
+        }
         
         const salt = await bcryptjs.genSalt(10);
         const hash = await bcryptjs.hash(req.body.password, salt);
@@ -49,7 +49,7 @@ router.post('/register', async (req, res) => {
             user: {
                 id: newUser.insertedId,
             },
-        };
+        }
 
         const authtoken = jwt.sign(payload, JWT_SECRET); //Task 5: Create JWT authentication with user._id as payload
         
@@ -57,7 +57,7 @@ router.post('/register', async (req, res) => {
         res.json({authtoken,email});
     } catch (e) {
          return res.status(500).send('Internal server error');
-    };
+    }
 });
 
 router.post('/login', async (req, res) => {
