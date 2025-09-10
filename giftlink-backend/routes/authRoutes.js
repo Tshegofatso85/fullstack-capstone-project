@@ -31,7 +31,7 @@ router.post('/register', async (req, res) => {
         if (existingEmail) {
             logger.error('Email id already exists');
             return res.status(400).json({ error: 'Email id already exists' });
-        }
+        };
         
         const salt = await bcryptjs.genSalt(10);
         const hash = await bcryptjs.hash(req.body.password, salt);
@@ -57,7 +57,7 @@ router.post('/register', async (req, res) => {
         res.json({authtoken,email});
     } catch (e) {
          return res.status(500).send('Internal server error');
-    }
+    };
 });
 
 router.post('/login', async (req, res) => {
