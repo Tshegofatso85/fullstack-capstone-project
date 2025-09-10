@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
     } catch (e) {
         console.error('Error fetching gift:', e);
         res.status(500).send('Error fetching gift');
-    };
+    }
 });
 
 
