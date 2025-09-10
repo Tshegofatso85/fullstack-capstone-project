@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     try {
         // Task 1: Connect to MongoDB and store connection to db constant
-        const db = await connectToDatabase()
+        const db = await connectToDatabase();
 
         // Task 2: use the collection() method to retrieve the gift collection
         const collection = db.collection("gifts");
@@ -19,13 +19,13 @@ router.get('/', async (req, res) => {
     } catch (e) {
         console.error('Error fetching gifts:', e);
         res.status(500).send('Error fetching gifts');
-    }
+    };
 });
 
 router.get('/:id', async (req, res) => {
     try {
         // Task 1: Connect to MongoDB and store connection to db constant
-        const db = await connectToDatabase()
+        const db = await connectToDatabase();
 
         // Task 2: use the collection() method to retrieve the gift collection
         const collection = db.collection("gifts")
@@ -37,13 +37,13 @@ router.get('/:id', async (req, res) => {
 
         if (!gift) {
             return res.status(404).send('Gift not found');
-        }
+        };
 
         res.json(gift);
     } catch (e) {
         console.error('Error fetching gift:', e);
         res.status(500).send('Error fetching gift');
-    }
+    };
 });
 
 
@@ -58,7 +58,7 @@ router.post('/', async (req, res, next) => {
         res.status(201).json(gift.ops[0]);
     } catch (e) {
         next(e);
-    }
+    };
 });
 
 module.exports = router;
